@@ -1,0 +1,59 @@
+{
+    "mode": "sr",
+    "use_cl": true,
+    "gpu_ids": [0],
+
+    "scale": 3,
+    "degradation": "BI",
+    "is_train": false,
+    "use_chop": false,
+    "rgb_range": 255,
+    "self_ensemble": false,
+    "save_dir":"/home/0816194/test_result/98times",
+
+    "datasets": {
+         "test_set1": {
+             "mode": "LRHR",
+             "dataroot_HR": "/home/0816194/test_data/HR/B100/x3",
+             "dataroot_LR": "/home/0816194/test_data/LR/B100/x3",
+             "data_type": "img"
+         },
+         "test_set2": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/0816194/test_data/HR/Manga109/x3",
+            "dataroot_LR": "/home/0816194/test_data/LR/Manga109/x3",
+            "data_type": "img"
+        },
+        "test_set3": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/0816194/test_data/HR/Set5/x3",
+            "dataroot_LR": "/home/0816194/test_data/LR/Set5/x3",
+            "data_type": "img"
+        },
+        "test_set4": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/0816194/test_data/HR/Set14/x3",
+            "dataroot_LR": "/home/0816194/test_data/LR/Set14/x3",
+            "data_type": "img"
+        },
+        "test_set5": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/0816194/test_data/HR/Urban100/x3",
+            "dataroot_LR": "/home/0816194/test_data/LR/Urban100/x3",
+            "data_type": "img"
+        }
+},
+
+    "networks": {
+        "which_model": "SRFBN",
+        "num_features": 64,
+        "in_channels": 3,
+        "out_channels": 3,
+        "num_steps": 4,
+        "num_groups": 6
+    },
+
+    "solver": {
+        "pretrained_path": "/home/0816194/Improvement-of-resolution/SRFBN_CVPR19/models/98times_best_ckp.pth"
+    }
+}

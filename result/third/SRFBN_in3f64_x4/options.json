@@ -1,0 +1,84 @@
+{
+  "mode": "sr",
+  "use_cl": true,
+  "gpu_ids": [
+    "0"
+  ],
+  "save_dir": "/home/0816194/Improvement-of-resolution/SRFBN_CVPR19/result/third",
+  "scale": 4,
+  "is_train": true,
+  "use_chop": false,
+  "rgb_range": 255,
+  "self_ensemble": false,
+  "save_image": false,
+  "datasets": {
+    "train": {
+      "mode": "LRHR",
+      "dataroot_HR": "/home/0816194/train_data(BSD300_LR_SR)/BSD300_train_HR",
+      "dataroot_LR": "/home/0816194/train_data(BSD300_LR_SR)/BSD300_train_LR",
+      "data_type": "img",
+      "n_workers": 3,
+      "batch_size": 16,
+      "LR_size": 13,
+      "use_flip": true,
+      "use_rot": true,
+      "noise": ".",
+      "phase": "train",
+      "scale": 4,
+      "rgb_range": 255
+    },
+    "val": {
+      "mode": "LRHR",
+      "dataroot_HR": "/home/0816194/train_data(BSD300_LR_SR)/BSD300_val_HR/x4",
+      "dataroot_LR": "/home/0816194/train_data(BSD300_LR_SR)/BSD300_val_LR/x4",
+      "data_type": "img",
+      "phase": "val",
+      "scale": 4,
+      "rgb_range": 255
+    }
+  },
+  "networks": {
+    "which_model": "SRFBN",
+    "num_features": 64,
+    "in_channels": 3,
+    "out_channels": 3,
+    "num_steps": 4,
+    "num_groups": 6,
+    "scale": 4
+  },
+  "solver": {
+    "type": "ADAM",
+    "learning_rate": 0.0001,
+    "weight_decay": 0,
+    "lr_scheme": "MultiStepLR",
+    "lr_steps": [
+      200,
+      400,
+      600,
+      800
+    ],
+    "lr_gamma": 0.5,
+    "loss_type": "l1",
+    "manual_seed": 0,
+    "num_epochs": 100,
+    "skip_threshold": 3,
+    "split_batch": 1,
+    "save_ckp_step": 10,
+    "save_vis_step": 1,
+    "pretrain": null,
+    "pretrained_path": "/home/0816194/Improvement-of-resolution/SRFBN_CVPR19/result/second/SRFBN_in3f64_x3/epochs/last_ckp.pth",
+    "cl_weights": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "timestamp": "230606-105424",
+  "path": {
+    "exp_root": "result/third/SRFBN_in3f64_x4",
+    "epochs": "result/third/SRFBN_in3f64_x4/epochs",
+    "visual": "result/third/SRFBN_in3f64_x4/visual",
+    "records": "result/third/SRFBN_in3f64_x4/records"
+  }
+}
