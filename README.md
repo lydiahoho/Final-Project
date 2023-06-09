@@ -16,7 +16,6 @@ conda install tqdm
 conda install pandas
 pip install opencv-python
 pip install gdown
-pip install scipy==1.2.2
 ```
 
 ## Dataset
